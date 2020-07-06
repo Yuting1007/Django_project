@@ -29,6 +29,7 @@ class Post(models.Model):
         max_length=10,
         choices=STATUS_CHOICES,
         default='draft')
+    tags = TaggableManager()
 
     class Meta:
         ordering = ('-publish',)
