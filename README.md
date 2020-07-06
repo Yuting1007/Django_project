@@ -32,7 +32,7 @@ python manage.py migrate
 It will help to initiate some tables.
 
 ### Database Design
-In this step, I create a new app called blog `django-admin startapp app_name` . And defined all tables in models.py. Then add this app in the project `settings.py`.
+In this step, I create a new app called blog `django-admin startapp app_name` . And defined all tables in `models.py`. Then add this app in the project `settings.py`.
 After this, in the terminal, async this app and create tables in mysql databases
 ```
 python manage.py makemigrations blog
@@ -44,6 +44,7 @@ in mysql, check the results by `show tables; desc blog_post;`
 The path for admin site is `.../admin`. We can see a page for login.
 To create a admin account, we can use the command like `python manage.py createsuper user` and login with that account.
 To async the blog app in the admin page we just create, we could change the `admin.py` file in blog app and give settings to its display.
+My admin account is admin, password.
 
 Also, for customizing your `admin.py` we could follow this [document](https://docs.djangoproject.com/en/2.2/ref/contrib/admin/).
 
