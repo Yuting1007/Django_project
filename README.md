@@ -46,3 +46,39 @@ To create a admin account, we can use the command like `python manage.py creates
 To async the blog app in the admin page we just create, we could change the `admin.py` file in blog app and give settings to its display.
 
 Also, for customizing your `admin.py` we could follow this [document](https://docs.djangoproject.com/en/2.2/ref/contrib/admin/).
+
+### Blog View
+For creating the view, we need to modify several files
+1. HTML Template in templates folder [document](https://docs.djangoproject.com/en/3.0/topics/templates/)
+2. views.py adding view functions aiming at each model. This file is facing to user, need to take request
+3. urls.py adding url patterns in blog application site
+4. urls.py adding url patterns for root in mysite project site
+
+### Blog View for Single Post
+For creating the detail view, we need to modify serveral files
+1. HTML Template in templates folder
+2. `views.py` adding view functions aiming at each model. This file is facing to user, need to take request
+3. `urls.py`adding url patterns in blog application site
+
+### Link for Single Post
+For creating the link for single post, we need to modify serveral files
+1. Adding a function to get the url in `models.py`
+The structure for this url is based on a property called "publish". This is a *DateTimeField*
+2. Update these href tags in HTML template
+
+### Pagination
+For creating the pagination, we need to modify serveral files
+```
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+```
+1. Update the view function in `views.py`
+
+### Comment Collections
+For creating the comment collections, we need to modify serveral files
+1. Adding comment model in `models.py`
+2. Migrate with myql database
+```
+python manage.py makemigrations blog
+python manage.py migrate
+```
+3. Register this model in `admin.py`

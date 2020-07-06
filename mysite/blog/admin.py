@@ -1,7 +1,9 @@
 from django.contrib import admin
-from .models import Post
+from .models import Post, Comment
 
 # admin.site.register(Post)
+
+
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     list_display = (
@@ -13,4 +15,11 @@ class PostAdmin(admin.ModelAdmin):
     date_hierarchy = 'publish'
     ordering = ('status', 'publish')
 
-# Register your models here.
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = (
+        'username', 'email', 'created', 'post', 'active'
+    )
+    list_filter = ('active', 'created', 'email')
+    search_fields = ('username', 'email')
